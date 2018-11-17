@@ -1,3 +1,8 @@
+---
+title: bbbblllloooogooooooooooooo
+layout: post
+---
+
 Welcome!
 ========
 This is a test
