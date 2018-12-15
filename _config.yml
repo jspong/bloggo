@@ -3,6 +3,6 @@ title: spongalicious
 avatar: Photo.jpg
 description: Under Construction. Welcome to geocities.
 
-permalink: /:title/
+permalink: /:year/:month/:day/:title/
 gems:
   - jekyll-sitemap
