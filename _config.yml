@@ -5,8 +5,9 @@ description: Under Construction. Welcome to geocities.
 
 permalink: pretty
 gems:
-  - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-tagging
 
 paginate: 10
 paginate_path: "/page:num/"
