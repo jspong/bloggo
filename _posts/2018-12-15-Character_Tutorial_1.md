@@ -3,6 +3,7 @@ title: Blender Modelling Part 1
 author: Johnald
 layout: post
 categories: Blender
+tags: Blender tutorial modelling characters learning
 ---
 I started watching a [video tutorial](https://www.youtube.com/watch?v=0QT1GNMevfc) on how to model a 3d character using [Blender3D](https://blender.org).
 
