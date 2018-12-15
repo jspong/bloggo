@@ -2,5 +2,7 @@ theme: jekyll-theme-minimal
 title: spongalicious
 avatar: Photo.jpg
 description: Under Construction. Welcome to geocities.
+
+permalink: /:title/
 gems:
   - jekyll-sitemap
