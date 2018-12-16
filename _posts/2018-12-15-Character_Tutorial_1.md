@@ -28,3 +28,5 @@ So I'll capture timelapse video of my efforts so that I can see how it comes tog
 *update*: I just tested out a recording using Iris, and it would appear that setting the recording rate to 1fps makes a real-time, but very choppy video, rather than a timelapse as I had hoped.
 
 *update 2*: I bought Iris to support the developer, to get rid of the watermark, and to deal with the fact that yes, maybe I'm just cheap.
+
+*update 3*: I posted a video! [![Video](https://img.youtube.com/vi/jh7mzomCU0M/0.jpg)](https://www.youtube.com/watch?v=jh7mzomCU0M)
