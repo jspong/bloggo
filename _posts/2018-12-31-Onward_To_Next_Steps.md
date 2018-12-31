@@ -2,7 +2,7 @@
 title: Back to Basics
 author: Johnald
 layout: post
-categories: Blender Unity
+categories: Motivation
 tags: Blender Unity update motivation
 ---
 I worked through the [first](https://www.youtube.com/watch?v=0QT1GNMevfc&t=599s) [two](https://www.youtube.com/watch?v=VswCmVMLiEE&t=7s) videos of a basic character modeling tutorial in blender, and it got me from making a [lumpy patch of squares](https://www.youtube.com/watch?v=ixOWlxha1fg) to a [nearly respectable rendition of a head-shaped object](https://www.youtube.com/watch?v=6UGMWChCSzc&t=1s).
