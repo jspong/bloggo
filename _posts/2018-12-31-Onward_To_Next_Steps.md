@@ -1,3 +1,10 @@
+---
+title: Back to Basics
+author: Johnald
+layout: post
+categories: Blender Unity
+tags: Blender Unity update motivation
+---
 I worked through the [first](https://www.youtube.com/watch?v=0QT1GNMevfc&t=599s) [two](https://www.youtube.com/watch?v=VswCmVMLiEE&t=7s) videos of a basic character modeling tutorial in blender, and it got me from making a [lumpy patch of squares](https://www.youtube.com/watch?v=ixOWlxha1fg) to a [nearly respectable rendition of a head-shaped object](https://www.youtube.com/watch?v=6UGMWChCSzc&t=1s).
 
 It helped build my self esteem regarding learning new things, but I definitely need to learn more fundamentals before moving on. It's tempting to say that I made an improvement, be too scared to try to refine it, and quit, but I will continue to move forward on my game development and 3d art trajectory. I'm building skills, and I hope creative inspiration follows (I have aphantasia, as well as some psychological issues, and a lack of internally-driven "things to make" tends to be why I stop developing skills after I reach a certain intermediate point).

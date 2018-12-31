@@ -1,3 +1,10 @@
+---
+title: First Head in Blender
+author: Johnald
+layout: post
+categories: Blender
+tags: Blender tutorial modelling characters learning
+---
 I made my first head in Blender3d!
 
 [![Video Link](https://img.youtube.com/vi/yQ3SLnQ8Drs/0.jpg)](https://www.youtube.com/watch?v=yQ3SLnQ8Drs)
