@@ -21,22 +21,25 @@ public class CaveGenerator : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        GenerateCaves();
+        GenerateCave();
     }
 
     void Update() {
         if (Input.GetMouseButton(0)) {
-            GenerateCaves();
+            GenerateCave();
         }
     }
 
     void OnDrawGizmos() {
-        ForEachSpace(DrawGizmo);
+        ForEachSpace((x, y) => {
+            Gizmos.color = map[x, y] == 1 ? Color.black : Color.white;
+            Gizmos.DrawCube(SquarePosition(x, y), Vector3.one);
+        });
     }
 
     #endregion
 
-    void GenerateCaves() {
+    void GenerateCave() {
         if (!useCustomSeed) {
             randomSeed = Time.time.ToString();
         }
@@ -44,7 +47,7 @@ public class CaveGenerator : MonoBehaviour {
         rand = new System.Random(randomSeed.GetHashCode());
         map = new int[width, height];
 
-        UpdateSpaces(SetSpace);
+        UpdateSpaces(InitialValue);
         for (int i = 0; i < smoothCount; i++) {
             UpdateSpaces(Smooth);
         }
@@ -52,7 +55,7 @@ public class CaveGenerator : MonoBehaviour {
 
     #region Visitor Methods
 
-    int SetSpace(int x, int y) {
+    int InitialValue(int x, int y) {
         if (IsEdge(x, y)) {
             return 1;
         } else {
@@ -68,11 +71,6 @@ public class CaveGenerator : MonoBehaviour {
             return 0;
         }
         return map[x, y];
-    }
-
-    void DrawGizmo(int x, int y) {
-        Gizmos.color = map[x, y] == 1 ? Color.black : Color.white;
-        Gizmos.DrawCube(SquarePosition(x, y), Vector3.one);
     }
 
     #endregion
@@ -95,7 +93,6 @@ public class CaveGenerator : MonoBehaviour {
     private delegate int SpaceUpdater(int x, int y);
 
     void UpdateSpaces(SpaceUpdater updater) {
-        int[,] newMap = new int[width, height];
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 newMap[x, y] = updater(x, y);
