@@ -143,7 +143,7 @@ I thought that perhaps overwriting the map value increases the number of neighbo
 
 ```csharp
 void UpdateSpaces(SpaceUpdater updater) {
-    int[,] map = new int[width, height];
+    int[,] newMap = new int[width, height];
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {
             newMap[x, y] = updater(x, y);
