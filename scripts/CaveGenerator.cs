@@ -14,7 +14,8 @@ public class CaveGenerator : MonoBehaviour {
     public bool useCustomSeed;
     public string randomSeed;
 
-    int[,] map;
+    CellularSimulation<int> cells;
+
     System.Random rand;
 
     #region Unity Event Handlers
@@ -25,16 +26,9 @@ public class CaveGenerator : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButtonDown(0)) {
             GenerateCave();
         }
-    }
-
-    void OnDrawGizmos() {
-        ForEachSpace((x, y) => {
-            Gizmos.color = map[x, y] == 1 ? Color.black : Color.white;
-            Gizmos.DrawCube(SquarePosition(x, y), Vector3.one);
-        });
     }
 
     #endregion
@@ -45,88 +39,37 @@ public class CaveGenerator : MonoBehaviour {
         }
 
         rand = new System.Random(randomSeed.GetHashCode());
-        map = new int[width, height];
+        cells = new CellularSimulation<int>(width, height);
 
-        UpdateSpaces(InitialValue);
+        cells.UpdateInPlace(InitialValue);
         for (int i = 0; i < smoothCount; i++) {
-            UpdateSpaces(Smooth);
+            cells.Update(Smooth);
         }
+
+        MeshGenerator meshGen = GetComponent<MeshGenerator>();
+        meshGen.GenerateMesh(cells.Values(), 1);
     }
 
     #region Visitor Methods
 
-    int InitialValue(int x, int y) {
-        if (IsEdge(x, y)) {
+    int InitialValue(CellularSimulation<int>.Cell cell) {
+        if (cell.IsEdge) {
             return 1;
         } else {
             return rand.Next(0, 100) <= percentFilled ? 1 : 0;
         }
     }
 
-    int Smooth(int x, int y) {
-        int wallCount = NeighborWallCount(x, y);
+    int Smooth(CellularSimulation<int>.Cell cell) {
+        int outOfBoundsNeighbors = 8 - cell.CountNeighbors();
+        int wallNeighbors = cell.CountNeighbors((me, other) => other.Value == 1);
+        int wallCount = outOfBoundsNeighbors + wallNeighbors;
         if (wallCount > 4) {
             return 1;
         } else if (wallCount < 4) {
             return 0;
         }
-        return map[x, y];
-    }
-
-    #endregion
-
-    #region Helper Methods
-
-    private delegate void SpaceVisitor(int x, int y);
-
-    void ForEachSpace(SpaceVisitor visitor) {
-        if (map == null) {
-            return;
-        }
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                visitor(x, y);
-            }
-        }
-    }
-
-    private delegate int SpaceUpdater(int x, int y);
-
-    void UpdateSpaces(SpaceUpdater updater) {
-        for (int x = 0; x < width; x++) {
-            for (int y = 0; y < height; y++) {
-                newMap[x, y] = updater(x, y);
-            }
-        }
-        map = newMap;
-    }
-
-    bool IsInGrid(int x, int y) {
-        return x >= 0 && y >= 0 && x < width && y < height;
-    }
-
-    bool IsEdge(int x, int y) {
-        return x == 0 || y == 0 || x == width - 1 || y == height - 1;
-    }
-
-    int NeighborWallCount(int x, int y) {
-        int walls = 0;
-        for (int xPos = x-1; xPos <= x+1; xPos++) {
-            for (int yPos = y-1; yPos <= y+1; yPos++) {
-                if (IsInGrid(xPos, yPos)) {
-                    if (xPos != x || yPos != y) {
-                        walls += map[xPos, yPos];
-                    }
-                } else {
-                    walls++;
-                }
-            }
-        }
-        return walls;
-    }
-
-    Vector3 SquarePosition(int x, int y) {
-        return new Vector3(x - width / 2 + 0.5f, 0, y - height / 2 + 0.5f);
+        return cell.Value;
     }
 
     #endregion
