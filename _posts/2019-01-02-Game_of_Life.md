@@ -45,7 +45,7 @@ And now I'm free to make simulations of other cellular automata. The simple [cav
 
 ## Conway's Game of Life
 
-![game of life](game_of_life.gif)
+![game of life](https://github.com/jspong/bloggo/raw/master/_posts/game_of_life.gif)
 
 [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) is probably the most famous example of a cellular automata simulation. The field is seeded with an initial value, after which each time epoch updates the board according to the following [rules](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Rules):
 
