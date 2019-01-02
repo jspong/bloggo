@@ -135,7 +135,7 @@ What I would have really loved is to make position generators (or their C# equiv
 
 For further readability, I organized some of the logic into well-named helpers such as `IsEdge(x,y)`, but while I will not go into those here, the [source is available](https://github.com/jspong/bloggo/blob/master/scripts/CaveGenerator.cs)
 
-![unbuffered cave generation](unbuffered_cave_generation.gif)
+![unbuffered cave generation](https://github.com/jspong/bloggo/raw/master/_posts/unbuffered_cave_generation.gif)
 
 While this looks pretty cool, it gets rid of a lot of the usable space. As I was tweaking the inputs, it seemed that the smoothing algorithm made a lot more walls than I would have wanted.
 
@@ -152,4 +152,4 @@ void UpdateSpaces(SpaceUpdater updater) {
 }
 ```
 
-![buffered cave generation](buffered_cave_generation.gif)
+![buffered cave generation](https://github.com/jspong/bloggo/raw/master/_posts/buffered_cave_generation.gif)
