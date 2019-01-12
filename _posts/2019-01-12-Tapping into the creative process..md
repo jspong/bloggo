@@ -1,4 +1,10 @@
-## Tapping into the creative process.
+---
+title: Tapping into the creative process.
+author: Johnald
+layout: post
+categories: Personal
+tags: motivation 
+---
 
 > There is nothing to writing. All you do is sit down at a typewriter and bleed.
 > 
